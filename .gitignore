@@ -1,0 +1,25 @@
+# gitignore for assns 
+# refrence https://alvinalexander.com/source-code/scala/sample-gitignore-file-scala-sbt-intellij-eclipse/
+
+# intellij idea
+*.log
+*.iml
+*.ipr
+*.iws
+.idea
+
+# mac
+.DS_Store
+
+# sbt
+project/project/
+project/target/
+target/
+
+# other?
+.history
+.scala_dependencies
+.cache-main
+
+#general
+*.class
