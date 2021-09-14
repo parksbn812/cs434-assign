@@ -1,6 +1,14 @@
 # gitignore for assns 
 # refrence https://alvinalexander.com/source-code/scala/sample-gitignore-file-scala-sbt-intellij-eclipse/
 
+# bloop and metals
+.bloop
+.bsp
+
+# metals
+project/metals.sbt
+.metals
+
 # intellij idea
 *.log
 *.iml
