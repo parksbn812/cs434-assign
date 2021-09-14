@@ -9,6 +9,8 @@ object Main {
         print(pascal(col, row) + " ")
       println()
     }
+    print(balance("())(".toList))
+    println
   }
 
   /**
@@ -22,7 +24,18 @@ object Main {
   /**
    * Exercise 2
    */
-  def balance(chars: List[Char]): Boolean = ???
+  def balance(chars: List[Char]): Boolean = {
+    def balanceJudgeWithCount(chars:List[Char], openedCount:Int):Boolean = {
+      if(openedCount < 0) {
+        false
+      }
+      else if(chars.isEmpty) openedCount == 0
+      else if (chars.head == '(') balanceJudgeWithCount(chars.tail, openedCount + 1)
+      else if (chars.head == ')') balanceJudgeWithCount(chars.tail, openedCount - 1)
+      else balanceJudgeWithCount(chars.tail, openedCount)
+    }
+    balanceJudgeWithCount(chars, 0)
+  }
 
   /**
    * Exercise 3
