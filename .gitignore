@@ -1,5 +1,5 @@
 # gitignore for assns 
-# refrence https://alvinalexander.com/source-code/scala/sample-gitignore-file-scala-sbt-intellij-eclipse/
+# reference https://alvinalexander.com/source-code/scala/sample-gitignore-file-scala-sbt-intellij-eclipse/
 
 # bloop and metals
 .bloop
@@ -16,18 +16,36 @@ project/metals.sbt
 *.iws
 .idea
 
+# eclipse
+build/
+.classpath
+.project
+.settings
+.worksheet
+bin/
+tmp/
+
 # mac
 .DS_Store
 
 # sbt
-project/project/
-project/target/
+# Simple Build Tool
+# http://www.scala-sbt.org/release/docs/Getting-Started/Directories.html#configuring-version-control
+dist/*
 target/
+lib_managed/
+src_managed/
+project/boot/
+project/plugins/project/
+.history
+.cache
+
+#scala
+*.class
 
 # other?
 .history
 .scala_dependencies
 .cache-main
-
-#general
-*.class
+.lib/
+lib/
