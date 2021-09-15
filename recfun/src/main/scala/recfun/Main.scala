@@ -14,7 +14,7 @@ object Main {
   }
 
   /**
-   * Exercise 1
+   * Exercise 1: Pascal's Triangle
    */
   def pascal(c: Int, r: Int): Int = {
     if (c==0 || c==r) 1
@@ -22,7 +22,7 @@ object Main {
   }
 
   /**
-   * Exercise 2
+   * Exercise 2: Parentheses Balancing
    */
   def balance(chars: List[Char]): Boolean = {
     def balanceJudgeWithCount(chars:List[Char], openedCount:Int):Boolean = {
@@ -38,7 +38,11 @@ object Main {
   }
 
   /**
-   * Exercise 3
+   * Exercise 3: Counting Change
    */
-  def countChange(money: Int, coins: List[Int]): Int = ???
+  def countChange(money: Int, coins: List[Int]): Int = {
+    if(money < 0 || coins.isEmpty) 0
+    else if (money == 0) 1
+    else (countChange(money - coins.head, coins) + countChange(money, coins.tail))
+  }
 }
