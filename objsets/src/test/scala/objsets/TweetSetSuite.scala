@@ -84,4 +84,14 @@ class TweetSetSuite extends FunSuite {
       setB.filterAcc(f, new Empty).foreach(pp)
     }
   }
+
+  test("print google in descending order"){
+    GoogleVsApple.googleTweets.descendingByRetweet foreach println
+    println("______________________________________________")
+  }
+
+  test("print apple in descending order"){
+    GoogleVsApple.appleTweets.descendingByRetweet foreach println
+    println("______________________________________________")
+  }
 }
