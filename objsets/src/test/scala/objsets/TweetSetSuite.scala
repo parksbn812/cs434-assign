@@ -69,4 +69,19 @@ class TweetSetSuite extends FunSuite {
       assert(trends.head.user == "a" || trends.head.user == "b")
     }
   }
+
+  test("testunion") {
+    new TestSets {
+      val setA = new Empty
+      val setB = setA.incl(new Tweet("a", "3", 20))
+      //val setC = setB.incl(new Tweet("a", "2", 20))
+      //val setD = setC.incl(new Tweet("a", "4", 20))
+      def f(x:Tweet) = {
+        x.text >= "3"
+      }
+      def pp (t: Tweet) = println(t.text)
+      // 3, 4
+      setB.filterAcc(f, new Empty).foreach(pp)
+    }
+  }
 }
