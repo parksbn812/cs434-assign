@@ -1,2 +1,12 @@
 # cs434-assign
-assignments of cs434 course
+Assignments in cs434 course
+
+## Environments
+* Project SDK: corretto-1.8
+* scala: 2.13.6
+
+## recfuns
+
+## funsets
+
+## objsets
