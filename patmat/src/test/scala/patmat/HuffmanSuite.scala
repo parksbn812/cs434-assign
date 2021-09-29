@@ -44,4 +44,48 @@ class HuffmanSuite extends FunSuite {
       assert(decode(t1, encode(t1)("ab".toList)) === "ab".toList)
     }
   }
+
+  test("times"){
+    val t1 = List('a','b','c','a','b')
+    val tt = times(t1)
+    println(tt)
+    assert(tt.length == 3)
+    assert(tt(1)._1 == 'b')
+    assert(tt(1)._2 == 2)
+
+  }
+
+  test("decodedSecret test") {
+    assert(decodedSecret.mkString("") == "huffmanestcool")
+  }
+
+  test("singleton test") {
+    val fork1 = makeCodeTree(Leaf ('e', 1), Leaf('d', 2))
+    val fork2 = makeCodeTree(Leaf('a', 2), fork1)
+
+    assert(singleton(List() )== false)
+    assert(singleton(List(fork1)) == true)
+    assert(singleton(List(fork1, fork2)) == false)
+  }
+
+  test("until test") {
+    val leaflist = List(Leaf('a', 1), Leaf('b', 2), Leaf('c', 3),Leaf('d', 4))
+    assert(until(singleton, combine)(leaflist) ===
+      Fork(Fork(Fork(Leaf('a',1),Leaf('b',2),List('a', 'b'),3),Leaf('c',3),List('a', 'b', 'c'),6),Leaf('d',4),List('a', 'b', 'c', 'd'),10))
+  }
+
+  test("createCodeTree test") {
+    val testData = string2Chars("abbcddcddc")
+    val expected = Fork(Fork(Fork(Leaf('a',1),Leaf('b',2),List('a', 'b'),3),Leaf('c',3),List('a', 'b', 'c'),6),Leaf('d',4),List('a', 'b', 'c', 'd'),10)
+    assert(createCodeTree(testData) === expected)
+  }
+
+  test("encode test") {
+    assert(encode(frenchCode)(string2Chars("huffmanestcool")) === secret)
+  }
+
+  test("quickEncode test") {
+    assert(quickEncode(frenchCode)(string2Chars("huffmanestcool")) === secret)
+  }
+
 }
