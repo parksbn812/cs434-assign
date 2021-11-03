@@ -12,12 +12,12 @@ trait GameDef {
 
   /**
    * The case class `Pos` encodes positions in the terrain.
-   * 
+   *
    * IMPORTANT NOTE
    *  - The `x` coordinate denotes the position on the vertical axis
    *  - The `y` coordinate is used for the horizontal axis
    *  - The coordinates increase when moving down and right
-   * 
+   *
    * Illustration:
    *
    *     0 1 2 3   <- y axis
@@ -25,10 +25,10 @@ trait GameDef {
    *   1 o o o o
    *   2 o # o o    # is at position Pos(2, 1)
    *   3 o o o o
-   *  
+   *
    *   ^
    *   |
-   *  
+   *
    *   x axis
    */
   case class Pos(x: Int, y: Int) {
@@ -63,7 +63,7 @@ trait GameDef {
    */
   type Terrain = Pos => Boolean
 
-  
+
   /**
    * The terrain of this game. This value is left abstract.
    */
@@ -112,23 +112,23 @@ trait GameDef {
 
     /** The block obtained by moving left */
     def left = if (isStanding)         dy(-2, -1)
-               else if (b1.x == b2.x)  dy(-1, -2)
-               else                    dy(-1, -1)
+    else if (b1.x == b2.x)  dy(-1, -2)
+    else                    dy(-1, -1)
 
     /** The block obtained by moving right */
     def right = if (isStanding)        dy(1, 2)
-                else if (b1.x == b2.x) dy(2, 1)
-                else                   dy(1, 1)
+    else if (b1.x == b2.x) dy(2, 1)
+    else                   dy(1, 1)
 
     /** The block obtained by moving up */
     def up = if (isStanding)           dx(-2, -1)
-             else if (b1.x == b2.x)    dx(-1, -1)
-             else                      dx(-1, -2)
+    else if (b1.x == b2.x)    dx(-1, -1)
+    else                      dx(-1, -2)
 
     /** The block obtained by moving down */
     def down = if (isStanding)         dx(1, 2)
-               else if (b1.x == b2.x)  dx(1, 1)
-               else                    dx(2, 1)
+    else if (b1.x == b2.x)  dx(1, 1)
+    else                    dx(2, 1)
 
 
     /**
@@ -141,7 +141,7 @@ trait GameDef {
      * Returns the list of positions reachable from the current block
      * which are inside the terrain.
      */
-    def legalNeighbors: List[(Block, Move)] = neighbors.filter { case (MoveBlock:Block, _ ) => MoveBlock.isLegal }
+    def legalNeighbors: List[(Block, Move)] = neighbors.filter { case (moveBlock:Block, _ ) => moveBlock.isLegal }
 
     /**
      * Returns `true` if the block is standing.
